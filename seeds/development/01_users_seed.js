@@ -8,7 +8,7 @@ exports.seed = function(knex, Promise) {
         knex('users').insert({
           id: 1,
           firstname: 'Gérald',
-          lastname:'babin',
+          lastname:'Babin',
           birthdate:'1972-12-25',
           created_at:'2016-07-13 00:00:00',
           created_at:'2016-07-13 00:00:00',

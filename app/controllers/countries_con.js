@@ -1,12 +1,12 @@
-var Countries = require('../collections/countries_col').Collection;
-var Country = require('../models/contry_mod').Model;
+var Users = require('../collections/users_col').Collection;
+var User = require('../models/user_mod').Model;
 
 
 module.exports = {
 	// GET /league/:id
 	getUser: function (req, res, next) {
         User.forge({ id: req.params.id })
-		.fetch({withRelated: ['groups','phones','adresses','emails'], require: true})
+		.fetch({withRelated: ['groups','phones','adresses'], require: true})
 		.then(function (model) {
 		    res.json(model);
 		})
@@ -16,7 +16,7 @@ module.exports = {
 	},
     getUsers: function (req, res, next) {
         Users.forge()
-		.fetch({withRelated: ['groups','phones','adresses','emails'], require: true})
+		.fetch({withRelated: ['groups','phones','adresses'], require: true})
 		.then(function (model) {
             res.json(model);
 		})

@@ -16,6 +16,10 @@ var Model = Bookshelf.Model.extend({
     phones: function () {
         var Phones = require('../../app/models/phone_mod').Model;
 		return this.hasMany(Phones,'user_id');
+	},
+    emails: function () {
+        var Emails = require('../../app/models/email_mod').Model;
+		return this.hasMany(Emails,'user_id');
 	}
 });
 
