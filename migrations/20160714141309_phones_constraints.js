@@ -14,7 +14,7 @@ exports.down = function(knex, Promise) {
     return Promise.all([
         knex.schema.table('phones', function(table){
             table.dropForeign('user_id')
-                .dropColumn('user_id');
+            .dropColumn('user_id');
         })
     ])
 };

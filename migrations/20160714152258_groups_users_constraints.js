@@ -4,11 +4,13 @@ exports.up = function(knex, Promise) {
             table.integer('group_id')
                 .unsigned()
                 .references('id')
-                .inTable('groups');
+                .inTable('groups')
+                .onDelete('CASCADE');
             table.integer('user_id')
                 .unsigned()
                 .references('id')
-                .inTable('users');
+                .inTable('users')
+                .onDelete('CASCADE');
         })
     ])
 };

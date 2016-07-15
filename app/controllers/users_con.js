@@ -24,18 +24,36 @@ module.exports = {
 			res.status(500).json({errormsg: error.message});
 		});
 	},
-    AddUser: function (req, res, next) {
-        /*
-        var user = req.user;
-        var userJSON = user.toJSON()
-        myCollectionUsers.forge()
-		.fetch({withRelated: ['country'], require: true})
+    addUser: function (req, res, next) {
+        User.forge(req.body)
+        //.fetch({withRelated: ['country'], require: true})
+		.save()
 		.then(function (model) {
-            res.render('leagues.ejs', { leagues: model.toJSON(),user:userJSON});
-		})
-		.otherwise(function (error) {
-			res.status(500).json({msg: error.message});
-		});
-		*/
-	}
+           res.json(model);
+        })
+		.catch(function (error) {
+            res.status(500).json({errormsg: error.message});
+        });
+	},
+    delUser: function (req, res, next) {
+        User.forge({ id: req.params.id })
+		.destroy()
+		.then(function (model) {
+           res.json([{id:req.params.id}]);
+        })
+		.catch(function (error) {
+            res.status(500).json({errormsg: error.message});
+        });
+	},
+    updateUser: function (req, res, next) {
+        User.forge({ id: req.params.id })
+        //.fetch({withRelated: ['country'], require: true})
+		.save(req.body, { method: 'update' })
+		.then(function (model) {
+           res.json(model);
+        })
+		.catch(function (error) {
+            res.status(500).json({errormsg: error.message});
+        });
+	},
 }

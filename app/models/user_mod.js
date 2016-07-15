@@ -1,6 +1,9 @@
 var knex = require('../config/database_mysql').knex;
 var Bookshelf = require('bookshelf')(knex);
 
+//var cascadeDelete = require('bookshelf-cascade-delete');
+//Bookshelf.plugin(cascadeDelete.default);
+
 var Model = Bookshelf.Model.extend({
 	tableName: 'users',
 	hasTimestamps: true,
