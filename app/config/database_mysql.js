@@ -3,7 +3,7 @@ var MySQL = {
     host: process.env.ip,
     user: 'keltpkr',
     password: '',
-    database: 'jmf_dev',
+    database: 'jmf_test',
     charset: 'utf8',
     debug    : false
 }

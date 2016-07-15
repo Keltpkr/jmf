@@ -3,7 +3,8 @@ process.env.NODE_ENV = 'test';
 var chai = require('chai');
 var chaiHttp = require('chai-http');
 var server = require('../server');
-var knex = require('knex')('knex');
+var knexfile = require('../knexfile.js');
+var knex = require('knex')(knexfile[process.env.NODE_ENV]);
 
 var should = chai.should();
 
@@ -47,7 +48,7 @@ describe('API Routes', function() {
         res.body[0].should.have.property('birthdate');
         var actual = new Date('1972-12-25 00:00:00');
         var expected = new Date(res.body[0].birthdate);
-       actual.getTime().should.equal(expected.getTime());
+        actual.getTime().should.equal(expected.getTime());
         done();
       });
     });
