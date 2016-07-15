@@ -1,5 +1,5 @@
-var Countries = require('../collections/countries_col').Collection;
-var Country = require('../models/contry_mod').Model;
+var Users = require('../collections/users_col').Collection;
+var User = require('../models/user_mod').Model;
 
 
 module.exports = {
